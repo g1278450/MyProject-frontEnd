@@ -1,0 +1,16 @@
+
+<h1>{{title}}</h1>
+<form method="post">
+    <div class="container">
+      <div>
+        <label for="account"><b>使用者帳號</b></label>
+        <input type="text" [formControl]="account">
+      </div>
+      <div>
+        <label for="password"><b>使用者密碼</b></label>
+        <input type="password" [formControl]="password">
+      </div>
+      <button type="button" (click)="doLogin()">登入</button>
+    </div>
+  </form>
+

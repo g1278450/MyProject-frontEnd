@@ -1,0 +1,53 @@
+
+<table cdk-table [dataSource]="stockData">
+    <ng-container cdkColumnDef="Code">
+      <th cdk-header-cell *cdkHeaderCellDef> 股票代號 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.Code}} </td>
+    </ng-container>
+  
+    <ng-container cdkColumnDef="Name">
+      <th cdk-header-cell *cdkHeaderCellDef> 股票名稱 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+    
+    <ng-container cdkColumnDef="HighestPrice">
+        <th cdk-header-cell *cdkHeaderCellDef> 最高點 </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.HighestPrice}} 元</td>
+    </ng-container>
+    
+    <ng-container cdkColumnDef="LowestPrice">
+        <th cdk-header-cell *cdkHeaderCellDef> 最低點 </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.LowestPrice}} 元</td>
+    </ng-container>
+    
+    <ng-container cdkColumnDef="OpeningPrice">
+        <th cdk-header-cell *cdkHeaderCellDef> 開盤價 </th>
+        <td cdk-cell *cdkCellDef="let element"> {{element.OpeningPrice}} 元</td>
+    </ng-container>
+  
+    <ng-container cdkColumnDef="ClosingPrice">
+      <th cdk-header-cell *cdkHeaderCellDef> 收盤價 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.ClosingPrice}} 元</td>
+    </ng-container>
+  
+    <ng-container cdkColumnDef="Change">
+      <th cdk-header-cell *cdkHeaderCellDef> 漲跌幅 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.Change}} %</td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="TradeVolume">
+      <th cdk-header-cell *cdkHeaderCellDef> 交易量 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.TradeVolume}} / 張</td>
+    </ng-container>
+
+    <ng-container cdkColumnDef="TradeValue">
+      <th cdk-header-cell *cdkHeaderCellDef> 交易總量 </th>
+      <td cdk-cell *cdkCellDef="let element"> {{element.TradeValue}} / 張</td>
+    </ng-container>
+  
+    <tr cdk-header-row *cdkHeaderRowDef="stockDataColumns"></tr>
+    <tr cdk-row *cdkRowDef="let row; columns: stockDataColumns;"></tr>
+  </table>
+
+  <!-- <zingchart-angular [config]="config" [height]="500" ></zingchart-angular> -->
+  
