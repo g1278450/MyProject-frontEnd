@@ -45,7 +45,7 @@
       <td cdk-cell *cdkCellDef="let element"> {{element.TradeValue}} / 張</td>
     </ng-container>
   
-    <tr cdk-header-row *cdkHeaderRowDef="stockDataColumns"></tr>
+    <tr cdk-header-row *cdkHeaderRowDef="stockDataColumns; sticky: true"></tr>
     <tr cdk-row *cdkRowDef="let row; columns: stockDataColumns;"></tr>
   </table>
 

@@ -9,7 +9,7 @@ import {stockData} from '../stock-data/stockData.model';
 })
 export class StockDataComponent implements OnInit {
   gets: any;
-  stockData: stockData[] = [];
+  stockData: any;
   token = sessionStorage.getItem('token') || '';
   stockDataColumns: string[] = ['Code', 'Name','HighestPrice', 'LowestPrice','OpeningPrice', 'ClosingPrice', 'Change', 'TradeVolume','TradeValue']; 
   stockControlUrl = "/stock"; 
@@ -21,12 +21,12 @@ export class StockDataComponent implements OnInit {
   constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
-      this.httpService.getRq(this.token, this.stockControlUrl + '/search/exchange/getStockDayAll').subscribe(
+      this.httpService.getRq(this.token, this.stockControlUrl + '/search/public/getStockData').subscribe(
         (response) => {
           this.gets = response;
           const data: Map<string, any> = new Map(Object.entries(response.data));
-          this.stockData = data.get('stockData');
-          console.log(data.get('stockData'));
+          this.stockData = data.get('stockDataLists');
+          console.log(data.get('stockDataLists'));
 
           // let tmp_dailyTranctionStockDatas = this.stockData.splice(0, 9);
           // console.log(tmp_dailyTranctionStockDatas);
