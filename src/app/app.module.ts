@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 // import { ZingchartAngularModule } from 'zingchart-angular';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing';
+// import { AppRoutingModule } from './app-routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
@@ -25,7 +25,8 @@ import { CdkTableModule  } from '@angular/cdk/table';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    // AppRoutingModule,
+    AppRoutesModule,
     // ZingchartAngularModule,
     FormsModule,
     ReactiveFormsModule,

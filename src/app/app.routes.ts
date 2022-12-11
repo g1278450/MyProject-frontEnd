@@ -9,8 +9,9 @@ import { AuthGuard } from './common/auth.guard';
 const routes: Routes  = [
     {path: 'login', component: LoginComponent },
     {path: 'index', component: IndexComponent},
+    {path: 'error', component: ErrorComponent},
     {path: 'stock', component: StockDataComponent, canActivate: [AuthGuard] },
-    {path: '**', component: ErrorComponent, canActivate: [AuthGuard]}  // 萬用路由，不可設在前面
+    // {path: '**', component: ErrorComponent, canActivate: [AuthGuard]}  // 萬用路由，不可設在前面
   ];
 
   @NgModule({

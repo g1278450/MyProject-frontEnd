@@ -7,10 +7,10 @@ import { ZingchartAngularModule } from 'zingchart-angular';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  config:ZingchartAngular.graphset = {
-    type: 'line',
-    series: [{
-      values: [3,6,4,6,4,6,4,6]
-    }],
-  };
+  // config:ZingchartAngular.graphset = {
+  //   type: 'line',
+  //   series: [{
+  //     values: [3,6,4,6,4,6,4,6]
+  //   }],
+  // };
 }

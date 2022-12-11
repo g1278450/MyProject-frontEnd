@@ -13,10 +13,8 @@ export class LoginComponent implements OnInit {
   /** 
    * 放變數
    */
-  title = "登入"
   account = new FormControl('', [Validators.required, Validators.maxLength(10)]) //驗證字數須大於10個字
   password = new FormControl('', [Validators.required, Validators.minLength(3)]) //驗證字數須不少於3個字
-  posts: any;
   token: any;
 
   constructor(private httpService: HttpService,private router: Router,) { }
@@ -26,9 +24,8 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
-    this.httpService.postRq(this.account.value, this.password.value, '/user/login').subscribe(
-      (response) => { 
-        this.posts = response; 
+    this.httpService.postRq(this.account.value, this.password.value, '/user/login').subscribe({
+      next:(response)=>{
         const data = new Map(Object.entries(response.data));
 
         if(data.get('token')){
@@ -42,8 +39,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['stock']);
         }
       },
-      (error) => { 
-        console.log(error); 
+      error:(e) =>{
+          this.router.navigate(['error']);
+      }
       });
   }
 

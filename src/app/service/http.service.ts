@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { commonData } from '../model/commonData.model';
 
 import { HttpHeaders } from '@angular/common/http';
+import { catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class HttpService {
 
   /**
    * 發Post 請求
+   * 處理登入
    * @param account 
    * @param password 
    * @returns 
@@ -34,6 +36,13 @@ export class HttpService {
     return this.http.post<commonData>(this.url + webUrl, params, options);
   }
 
+  /**
+   * 發Get 請求
+   * 查詢資料
+   * @param token 
+   * @param webUrl 
+   * @returns 
+   */
   getRq(token: string, webUrl: string) {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json',
